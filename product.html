@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pet Food Store</title>
+</head>
+
+<body style="font-family: 'Poppins', sans-serif; background: #F9F9F9; margin: 0; padding: 20px; color: #45413E;">
+
+    <header style="background: #DB7F67; color: white; padding: 20px; text-align: center; border-radius: 8px;">
+        <h1>Pet Food Store</h1>
+        <p>Choose the best food for your furry friends!</p>
+    </header>
+
+    <main style="margin-top: 20px;">
+
+        <!-- Filter Section -->
+        <section style="background: white; box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.1); border-radius: 12px; padding: 20px; margin-bottom: 20px;">
+            <h2 style="margin-bottom: 10px;">Filter Products</h2>
+            <form id="filter-form" style="display: flex; flex-wrap: wrap; grid-gap: 15px;">
+
+                <!-- Filter by Amount -->
+                <div>
+                    <label for="filter-amount" style="font-size: 14px; font-weight: 600; margin-bottom: 5px; display: block;">Maximum Price</label>
+                    <input type="number" id="filter-amount" placeholder="Enter max price" style="padding: 10px; border: 1px solid #DB7F67; border-radius: 8px; font-size: 14px;">
+                </div>
+
+                <!-- Filter by Rating -->
+                <div>
+                    <label for="filter-rating" style="font-size: 14px; font-weight: 600; margin-bottom: 5px; display: block;">Minimum Rating</label>
+                    <input type="number" id="filter-rating" min="1" max="5" placeholder="Enter min rating" style="padding: 10px; border: 1px solid #DB7F67; border-radius: 8px; font-size: 14px;">
+                </div>
+
+                <!-- Filter by Recommendation -->
+                <div>
+                    <label for="filter-recommendation" style="font-size: 14px; font-weight: 600; margin-bottom: 5px; display: block;">
+            <!-- Filter Button -->
+            <button type="button" onclick="applyFilters()" style="background: #DB7F67; color: white; padding: 10px 20px; border: none; border-radius: 8px; cursor: pointer; font-size: 14px; margin-top: 20px;">
+                Apply Filters
+            </button>
+        </form>
+    </section>
+
+    <!-- Product Section -->
+    <section id="product-list" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); grid-gap: 20px;">
+        <div class="product" data-price="20" data-rating="4" data-recommended="yes" style="background: white; padding: 15px; border-radius: 10px; text-align: center; box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.1);">
+            <h3>Dog Food A</h3>
+            <img src="dogfood.jpeg">
+            <p>Price: Rs20</p>
+            <p>Rating: 4/5</p>
+            <p>Recommended: Yes</p>
+        </div>
+        <div class="product" data-price="15" data-rating="5" data-recommended="yes" style="background: white; padding: 15px; border-radius: 10px; text-align: center; box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.1);">
+            <h3>Cat Food B</h3>
+            <img src="catfood.jpeg">
+            <p>Price: Rs15</p>
+            <p>Rating: 5/5</p>
+            <p>Recommended: Yes</p>
+        </div>
+        <div class="product" data-price="30" data-rating="3" data-recommended="no" style="background: white; padding: 15px; border-radius: 10px; text-align: center; box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.1);">
+            <h3>Dog Food C</h3>
+            <img src="dogfood.jpeg">
+            <p>Price: Rs30</p>
+            <p>Rating: 3/5</p>
+            <p>Recommended: No</p>
+        </div>
+        <div class="product" data-price="25" data-rating="4" data-recommended="yes" style="background: white; padding: 15px; border-radius: 10px; text-align: center; box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.1);">
+            <h3>Cat Food D</h3>
+            <img src="catfood.jpeg">
+            <p>Price: Rs25</p>
+            <p>Rating: 4/5</p>
+            <p>Recommended: Yes</p>
+        </div>
+    </section>
+</main>
+
+<script>
+    function applyFilters() {
+        const maxPrice = document.getElementById('filter-amount').value;
+        const minRating = document.getElementById('filter-rating').value;
+        const recommendation = document.getElementById('filter-recommendation').value;
+
+        const products = document.querySelectorAll('.product');
+
+        products.forEach(product => {
+            const price = parseInt(product.getAttribute('data-price'), 10);
+            const rating = parseInt(product.getAttribute('data-rating'), 10);
+            const recommended = product.getAttribute('data-recommended');
+
+            let show = true;
+
+            if (maxPrice && price > maxPrice) show = false;
+            if (minRating && rating < minRating) show = false;
+            if (recommendation && recommendation !== recommended) show = false;
+
+            product.style.display = show ? 'block' : 'none';
+        });
+    }
+</script>

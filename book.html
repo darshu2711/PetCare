@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pet Care Appointment</title>
+</head>
+
+<body style="font-family: 'Poppins', sans-serif; background: #F9F9F9; margin: 0; padding: 20px; color: #45413E;">
+
+    <header style="background: #DB7F67; color: white; padding: 20px; text-align: center; border-radius: 8px;">
+        <h1>Pet Care Appointment Booking</h1>
+        <p>Make an appointment to give your pet the care they deserve.</p>
+    </header>
+
+    <main style="display: flex; flex-direction: column; align-items: center; margin-top: 20px;">
+
+        <!-- Appointment Form Card -->
+        <div style="background: white; box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.1); border-radius: 12px; padding: 20px; max-width: 600px; width: 100%; text-align: left;">
+            <h2 style="margin-bottom: 10px;">Book Your Appointment</h2>
+            <form style="display: flex; flex-direction: column; grid-gap: 15px;" onsubmit="submitForm(event)">
+
+                <!-- Name -->
+                <div>
+                    <label for="name" style="font-size: 14px; font-weight: 600; margin-bottom: 5px; display: block;">Your Name</label>
+                    <input type="text" id="name" name="name" placeholder="Enter your name" required
+                        style="width: 100%; padding: 10px; border: 1px solid #DB7F67; border-radius: 8px; font-size: 14px;">
+                </div>
+                <div>
+                    <label for="name" style="font-size: 14px; font-weight: 600; margin-bottom: 5px; display: block;">Phone Number</label>
+                    <input type="text" id="name" name="name" placeholder="Enter your Phone name" required
+                        style="width: 100%; padding: 10px; border: 1px solid #DB7F67; border-radius: 8px; font-size: 14px;">
+                </div>
+
+                <!-- Pet Name -->
+                <div>
+                    <label for="pet-name" style="font-size: 14px; font-weight: 600; margin-bottom: 5px; display: block;">Pet's Name</label>
+                    <input type="text" id="pet-name" name="pet-name" placeholder="Enter your pet's name" required
+                        style="width: 100%; padding: 10px; border: 1px solid #DB7F67; border-radius: 8px; font-size: 14px;">
+                </div>
+
+                <!-- Service -->
+                <div>
+                    <label for="service" style="font-size: 14px; font-weight: 600; margin-bottom: 5px; display: block;">Service Type</label>
+                    <select id="service" name="service" required
+                        style="width: 100%; padding: 10px; border: 1px solid #DB7F67; border-radius: 8px; font-size: 14px;">
+                        <option value="" disabled selected>Select a service</option>
+                        <option value="grooming">Grooming</option>
+                        <option value="health-checkup">Health Checkup</option>
+                        <option value="training">Training</option>
+                        <option value="boarding">Boarding</option>
+                    </select>
+                </div>
+
+                <!-- Date -->
+                <div>
+                    <label for="appointment-date" style="font-size: 14px; font-weight: 600; margin-bottom: 5px; display: block;">Preferred Date</label>
+                    <input type="date" id="appointment-date" name="appointment-date" required
+                        style="width: 100%; padding: 10px; border: 1px solid #DB7F67; border-radius: 8px; font-size: 14px;">
+                </div>
+
+                <!-- Time -->
+                <div>
+                    <label for="appointment-time" style="font-size: 14px; font-weight: 600; margin-bottom: 5px; display: block;">Preferred Time</label>
+                    <input type="time" id="appointment-time" name="appointment-time" required
+                        style="width: 100%; padding: 10px; border: 1px solid #DB7F67; border-radius: 8px; font-size: 14px;">
+                </div>
+
+                <!-- Submit Button -->
+                <button type="submit"
+                    style="padding: 12px; background: #DB7F67; color: white; border: none; border-radius: 8px; font-size: 16px; font-weight: 600; cursor: pointer; transition: 0.3s;">
+                    Book Appointment
+                </button>
+            </form>
+        </div>
+
+        <!-- Contact Info -->
+        <footer style="margin-top: 30px; text-align: center; font-size: 14px;">
+            <p>For assistance, call us at <strong>+1-800-PET-CARE</strong> or email us at <a href="mailto:support@petcare.com" style="color: #DB7F67;">support@petcare.com</a>.</p>
+        </footer>
+    </main>
+
+    <script>
+        function submitForm(event) {
+            // Prevent the default form submission
+            event.preventDefault();
+
+            // Display a confirmation message
+            alert("Your appointment has been booked successfully! , we will get by to you Soon..");
+
+            // Optionally clear the form after submission
+            event.target.reset();
+        }
+    </script>
+
+</body>
+
+</html>
