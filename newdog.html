@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book a Dog Walk</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #DB7F67;
+            color: #DB7F67;
+        }
+        header {
+            background-color: #5e9d8a;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .container {
+            margin: 20px auto;
+            padding: 20px;
+            max-width: 800px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .walker-card {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            transition: 0.3s;
+        }
+        .walker-card:hover {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .walker-card img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin-right: 15px;
+        }
+        .walker-details {
+            flex: 1;
+        }
+        .book-btn {
+            background-color: #5e9d8a;
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        .book-btn:hover {
+            background-color: #468b73;
+        }
+        .filter-section, .schedule-section {
+            margin: 15px 0;
+        }
+        .filter-section label, .schedule-section label {
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Book a Dog Walk</h1>
+    </header>
+    <div class="container">
+        <!-- Filter Section -->
+        <div class="filter-section">
+            <label for="rating">Filter by Rating:</label>
+            <select id="rating">
+                <option>All</option>
+                <option>5 Stars</option>
+                <option>4+ Stars</option>
+                <option>3+ Stars</option>
+            </select>
+        </div>
+
+        <!-- Walkers Section -->
+        <div class="walker-card">
+            <img src="dog.jpeg" alt="Walker 1">
+            <div class="walker-details">
+                <h3>John Doe</h3>
+                <p>5.0 Stars | 25 Reviews</p>
+            </div>
+            <button class="book-btn" onclick="bookWalk('John Doe')">Book</button>
+        </div>
+        <div class="walker-card">
+            <img src="dog.jpeg" alt="Walker 2">
+            <div class="walker-details">
+                <h3>Jane Smith</h3>
+                <p>4.8 Stars | 30 Reviews</p>
+            </div>
+            <button class="book-btn" onclick="bookWalk('Jane Smith')">Book</button>
+        </div>
+
+        <!-- Schedule Section -->
+        <div class="schedule-section">
+            <label for="date">Select Date:</label>
+            <input type="date" id="date">
+            <label for="time">Select Time:</label>
+            <input type="time" id="time">
+        </div>
+    </div>
+    <script>
+        function bookWalk(walker) {
+            const date = document.getElementById('date').value;
+            const time = document.getElementById('time').value;
+            if (!date || !time) {
+                alert('Please select a date and time for the walk!');
+                return;
+            }
+            alert(`You have booked a walk with ${walker} on ${date} at ${time}.`);
+        }
+    </script>
+</body>
+</html>
